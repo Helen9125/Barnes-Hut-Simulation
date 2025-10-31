@@ -1,4 +1,4 @@
-# 🕊️ Barnes-Hut Simulation
+# 🪐 Barnes-Hut Simulation
 
 [![Language](https://img.shields.io/badge/language-Go-blue)]()
 [![Visualization](https://img.shields.io/badge/output-GIF-green)]()
