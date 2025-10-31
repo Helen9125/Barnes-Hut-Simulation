@@ -1,4 +1,4 @@
-# 🕊️ Boids Simulation
+# 🕊️ Barnes-Hut Simulation
 
 [![Language](https://img.shields.io/badge/language-Go-blue)]()
 [![Visualization](https://img.shields.io/badge/output-GIF-green)]()
@@ -44,13 +44,9 @@ To construct the quadtree, we recursively subdivide the 2D space into four equal
 
 3. **Aggregate mass information**  
    After all bodies are inserted, each internal node computes:
-   \[
-   M = \sum_i m_i
-   \]
-   \[
-   \vec{r}_{cm} = \frac{1}{M} \sum_i m_i \vec{r}_i
-   \]
-   where \(M\) is the total mass and \(\vec{r}_{cm}\) is the **center of mass** of that quadrant.
+   - M = sum of all masses in the quadrant
+   - r_cm = (1 / M) * sum(m_i * r_i) for all i in the quadrant
+    where `M` is the total mass and `r_cm` is the **center of mass** of that quadrant.
 
 This process yields a tree where upper levels represent clusters of bodies and lower levels represent individual bodies.
 
@@ -66,37 +62,27 @@ This process yields a tree where upper levels represent clusters of bodies and l
 ### 3. Gravitational Force Computation
 The forces between two bodies/clusters is calculated by Newton's law:
 
-\[
-\vec{F}_{ij} = G \cdot \frac{m_i m_j}{r_{ij}^2} \cdot \hat{r}_{ij}
-\]
+F_ij = G * (m_i * m_j) / r_ij^2 * r_hat_ij
 
-where
-- \(G\) is the gravitational constant,  
-- \(r_{ij}\) is the distance between the two bodies/clusters,  
-- \(\hat{r}_{ij}\) is the unit vector from \(i\) to \(j\).
+where:
+- `G` is the gravitational constant,  
+- `r_ij` is the distance between the two bodies/clusters,  
+- `r_hat_ij` is the unit vector from i to j.
 
 When applying the Barnes–Hut approximation, we only use the center of mass of a node if:
 
-\[
-\frac{s}{d} < \theta
-\]
+s / d < theta
 
 where:
-- \(s\) = width of the region,  
-- \(d\) = distance from the body to the region’s center of mass,  
-- \(\theta\) = opening angle threshold.
+- `s` = width of the region,  
+- `d` = distance from the body to the region’s center of mass,  
+- `theta` = opening angle threshold.
 ---
 ## ⚙️ Simulation Dynamics
 Each time step consists of:
 1. **Building the Quadtree** — recursively partitioning the space based on ball positions.  
 2. **Computing Forces** — traversing the quadtree to accumulate gravitational forces.  
-3. **Updating Positions and Velocities** — using simple Euler integration:
-   \[
-   \vec{v}(t+\Delta t) = \vec{v}(t) + \frac{\vec{F}}{m} \Delta t
-   \]
-   \[
-   \vec{x}(t+\Delta t) = \vec{x}(t) + \vec{v}(t+\Delta t)\Delta t
-   \]
+3. **Updating Positions and Velocities** — using simple Euler integration
 
 ---
 
