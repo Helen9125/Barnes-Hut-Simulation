@@ -1,0 +1,20 @@
+# Author: Yu-Lun Chen
+# Date: 2025-10-24
+# Description: Testing data for func FindQuadrant
+
+# width of universe
+100
+
+# each line is one testing data: x y v_x v_y mass radius R G B
+10 90 0 0 10 1 255 0 0
+60 70 0 0 20 1 0 255 0
+30 40 0 0 30 1 0 0 255
+80 20 0 0 10 1 255 255 0
+50 50 0 0 20 1 255 255 255
+
+# expected output
+0
+1
+2
+3
+1

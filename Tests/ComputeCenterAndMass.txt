@@ -1,0 +1,15 @@
+# Author: Yu-Lun Chen
+# Date: 2025-10-24
+# Description: Testing data for func ComputeCenterAndMass
+
+# test on leaf
+# node_x node_y mass expected_x expected_y expected_mass
+10 5 5 10 5 5
+
+# test on internal node
+# child | child | ... | expected_x expected_y expected_mass
+0 0 10 | 2 0 10 | 1 0 20
+0 0 10 | 4 0 30 | 3 0 40
+0 0 1 | 10 10 100 | 9.90099 9.90099 101
+0 0 20 | 2 0 10 | 0 2 10 | 0.5 0.5 40
+2 0 20 | 0 2 10 | 2 2 10 | 1.5 1 40

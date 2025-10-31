@@ -1,0 +1,48 @@
+# Author: Yu-Lun Chen
+# Date: 2025-10-24
+# Description: Testing data for func Subdivide
+
+# test 1
+# sector: x y width
+0 0 100
+# expected results
+0 50 50
+50 50 50
+0 0 50
+50 0 50
+
+# test 2
+# sector: x y width
+50 50 50
+# expected results
+50 75 25
+75 75 25
+50 50 25
+75 50 25
+
+# test 3
+# sector: x y width
+0 0 1
+# expected results
+0 0.5 0.5
+0.5 0.5 0.5
+0 0 0.5
+0.5 0 0.5
+
+# test 4
+# sector: x y width
+0 0 10000
+# expected results
+0 5000 5000
+5000 5000 5000
+0 0 5000
+5000 0 5000
+
+# test 5
+# sector: x y width
+100 100 200
+# expected results
+100 200 100
+200 200 100
+100 100 100
+200 100 100

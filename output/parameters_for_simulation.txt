@@ -1,0 +1,42 @@
+## Author: Yu-Lun Chen
+## Date: 2025-10-24
+## Description: Parameters for simulating jupiter, galaxy, collision.
+
+# jupiter:
+    width = 1.0e23
+	numGens = 100000
+	time = 1e1
+	theta = 0.5
+
+	canvasWidth = 1000
+	frequency = 1000
+	scalingFactor = 5.0
+
+# galaxy:
+	width = 1.0e23
+	numGens = 100000
+	time = 2e15
+	theta = 0.5
+
+	canvasWidth = 1000
+	frequency = 1000
+	scalingFactor = 5e11
+
+	g := InitializeGalaxy(500, 1e22, 5e22, 5e22)
+	initialUniverse = InitializeUniverse([]Galaxy{g}, width)
+
+# galaxy_collision_5e3:
+    width = 1.0e23
+	numGens = 100000
+	time = 2e14
+	theta = 0.5
+
+	canvasWidth = 1000
+	frequency = 1000
+	scalingFactor = 1e11
+
+	g0 := InitializeGalaxy(500, 4e21, 7e22, 2e22)
+	g1 := InitializeGalaxy(500, 4e21, 3e22, 7e22)
+
+	// Push galaxy
+	v := 5e3

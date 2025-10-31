@@ -1,0 +1,10 @@
+# Author: Yu-Lun Chen
+# Date: 2025-10-24
+# Description: Testing data for func Distance
+
+# test_ID | x_1 y_2 x_2 y_2 | expected_result (delta_x delta_y distance)
+1 | 0.0 0.0  0.0 0.0 | 0.0 0.0 0.0
+2 | 1.0 0.0  4.0 0.0 | -3.0 0.0 3.0
+3 | 4.5 6.5  1.5 2.5 | 3.0 4.0 5.0
+4 | 0.0 0.0  0.5 0.5 | -0.5 -0.5 0.707
+5 | 1000.1 1005.2  1004.1 1004.2 | -4.0 1.0 4.123

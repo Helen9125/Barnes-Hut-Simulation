@@ -1,0 +1,10 @@
+# Author: Yu-Lun Chen
+# Date: 2025-10-24
+# Description: Testing data for func IsInsideUniverse
+
+# x y width expected
+10 20 100 true
+0 0 20 true
+-1 10 100 false
+10 -5 50 false
+50 0 50 true
